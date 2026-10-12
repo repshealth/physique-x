@@ -1084,6 +1084,36 @@ html, body { margin: 0; padding: 0; }
   #px-page .px-chip-ico { width: 15px; height: 15px; }
   #px-page .px-chip-a { top: 7%; left: 0; }
   #px-page .px-chip-b { bottom: 5%; right: 0; }
+  /* feature pills: a tidy two-column grid rather than a ragged stack */
+  #px-page .px-pills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 4px;
+  }
+  #px-page .px-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 46px;
+    padding: 9px 10px;
+    font-size: 0.75rem;
+    line-height: 1.25;
+    border-radius: 14px;
+  }
+  #px-page .px-pill:last-child { grid-column: 1 / -1; }
+  /* restate the fill so it checkerboards across two columns
+     rather than colouring the whole left-hand column */
+  #px-page .px-pill {
+    background: #fff;
+    border-color: var(--px-purple-soft);
+  }
+  #px-page .px-pill:nth-child(4n+1),
+  #px-page .px-pill:nth-child(4n) {
+    background: var(--px-purple-soft);
+    border-color: var(--px-purple-soft);
+  }
 }
 
 /* Keep the fixed nav below the WP admin bar when logged in */
