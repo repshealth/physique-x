@@ -1070,6 +1070,20 @@ html, body { margin: 0; padding: 0; }
   #px-page .px-faq-item.open .px-faq-a { padding-left: 44px; padding-right: 14px; }
   #px-page .px-faq-a { padding-left: 42px; }
   #px-page .px-trust { gap: 14px; flex-direction: column; align-items: center; }
+  /* features visual: keep the blob and the chips inside the screen */
+  #px-page .px-inside-visual { padding: 10px 0 18px; }
+  #px-page .px-blob {
+    width: 300px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #px-page .px-inside-phone { width: 232px; }
+  #px-page .px-chip { font-size: 0.74rem; padding: 9px 14px; gap: 7px; }
+  #px-page .px-chip-ico { width: 15px; height: 15px; }
+  #px-page .px-chip-a { top: 7%; left: 0; }
+  #px-page .px-chip-b { bottom: 5%; right: 0; }
 }
 
 /* Keep the fixed nav below the WP admin bar when logged in */
