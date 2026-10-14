@@ -818,107 +818,74 @@ html, body { margin: 0; padding: 0; }
 #px-page .px-capture .px-label { color: rgba(255,255,255,0.72); }
 #px-page .px-capture h2 { color: #fff; margin-bottom: 1.1rem; }
 #px-page .px-capture p { color: rgba(255,255,255,0.82); max-width: 44ch; line-height: 1.7; }
-#px-page .px-quiz-card {
+#px-page .px-lead-card {
   position: relative;
   background: #fff;
   color: var(--px-ink);
   border-radius: var(--px-r-lg);
   padding: 32px;
   box-shadow: 0 30px 60px rgba(26,24,36,0.22);
-  min-height: 352px;
-  display: flex;
-  flex-direction: column;
 }
-#px-page .px-quiz-card p {
+#px-page .px-lead-card p {
   color: var(--px-muted);
   max-width: none;
 }
-#px-page .px-quiz-card a:not(.px-btn) {
+#px-page .px-lead-card a:not(.px-btn) {
   color: var(--px-purple);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-#px-page .px-quiz-dots {
-  display: flex;
-  gap: 7px;
-  margin-bottom: 22px;
-}
-#px-page .px-quiz-dot {
-  width: 30px; height: 4px;
-  border-radius: 100px;
-  background: var(--px-line);
-  transition: background .25s;
-}
-#px-page .px-quiz-dot.on { background: var(--px-purple); }
-#px-page .px-quiz-card.done .px-quiz-dots { visibility: hidden; }
-
-#px-page .px-quiz-step { display: none; }
-#px-page .px-quiz-step.active { display: block; animation: pxQuizIn .3s ease both; }
-@keyframes pxQuizIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: none; }
-}
-
-#px-page .px-quiz-q {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
-  font-weight: 700;
+#px-page .px-lead-field { margin-bottom: 14px; }
+#px-page .px-lead-card label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 1.2;
-  color: var(--px-ink);
-  margin: 0 0 20px;
-  max-width: none;
+  color: var(--px-muted);
+  margin-bottom: 8px;
 }
-#px-page .px-quiz-opts { display: grid; gap: 10px; }
-#px-page .px-quiz-opt {
-  appearance: none;
+#px-page .px-lead-opt {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #A9A6B9;
+  margin-left: 6px;
+}
+#px-page .px-lead-card input {
   width: 100%;
-  text-align: left;
-  padding: 0.95rem 1.2rem;
+  padding: 0.92rem 1.2rem;
   border-radius: 100px;
   border: 1.5px solid var(--px-line);
   background: var(--px-grey-pale);
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.92rem;
-  font-weight: 600;
+  font-size: 0.95rem;
   color: var(--px-ink);
-  cursor: pointer;
-  transition: border-color .2s, background .2s, color .2s, transform .15s;
+  outline: none;
+  transition: border-color .2s, background .2s;
 }
-#px-page .px-quiz-opt:hover {
+#px-page .px-lead-card input:focus {
   border-color: var(--px-purple);
-  background: var(--px-purple-pale);
-  transform: translateX(3px);
+  background: #fff;
 }
-#px-page .px-quiz-opt.on {
-  border-color: var(--px-purple);
-  background: var(--px-purple);
-  color: #fff;
+#px-page .px-lead-card input.px-lead-bad { border-color: #E0484D; }
+/* honeypot: off-screen for people, still fillable by a bot */
+#px-page .px-lead-trap {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none;
 }
-#px-page .px-quiz-back,
-#px-page .px-quiz-restart {
-  appearance: none;
-  background: none;
-  border: 0;
-  padding: 0;
-  margin-top: 20px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--px-muted);
-  cursor: pointer;
-  transition: color .2s;
-}
-#px-page .px-quiz-back:hover,
-#px-page .px-quiz-restart:hover { color: var(--px-purple); }
-#px-page .px-quiz-restart { display: block; margin: 18px auto 0; }
+#px-page .px-lead-go { width: 100%; margin-top: 6px; }
+#px-page .px-lead-go[disabled] { opacity: 0.6; pointer-events: none; }
 
-#px-page .px-quiz-result { text-align: center; }
-#px-page .px-quiz-badge {
-  display: inline-block;
+#px-page .px-lead-thanks { text-align: center; }
+#px-page .px-lead-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -929,43 +896,36 @@ html, body { margin: 0; padding: 0; }
   padding: 7px 15px;
   margin-bottom: 18px;
 }
-#px-page .px-quiz-summary {
-  font-size: 0.85rem;
-  color: var(--px-muted);
-  line-height: 1.6;
-  margin: 0 0 12px;
-  max-width: none;
+#px-page .px-lead-badge svg {
+  width: 11px; height: 11px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
-#px-page .px-quiz-result .px-h3 { margin-bottom: 0.7rem; }
-#px-page .px-quiz-why {
+#px-page .px-lead-thanks .px-h3 { margin-bottom: 0.7rem; }
+#px-page .px-lead-why {
   font-size: 0.86rem;
-  color: var(--px-muted);
   line-height: 1.65;
-  margin: 0 auto 20px;
+  margin: 0 auto 22px;
   max-width: 34ch;
 }
-#px-page .px-quiz-price {
-  display: flex;
-  flex-direction: column;
+#px-page .px-lead-wa {
+  width: 100%;
+  display: inline-flex;
   align-items: center;
-  gap: 2px;
-  margin-bottom: 20px;
+  justify-content: center;
+  gap: 10px;
 }
-#px-page .px-quiz-amt {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(2.2rem, 4vw, 2.9rem);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--px-ink);
+#px-page .px-lead-wa-ico {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
 }
-#px-page .px-quiz-per {
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--px-muted);
-}
-#px-page .px-quiz-go { width: 100%; }
 #px-page .px-form-small { font-size: 0.78rem; color: var(--px-muted); text-align: center; margin-top: 14px; }
 
 /* ─── Footer ─────────────────────────────────────────────────── */
@@ -1533,65 +1493,53 @@ body.admin-bar #px-page .px-nav-wrap { top: 32px; }
     </div>
   </section>
 
-  <!-- ─── QUIZ ────────────────────────────────────────────────── -->
-  <section class="px-capture" id="quiz">
+  <!-- ─── LEAD FORM ───────────────────────────────────────────── -->
+  <section class="px-capture" id="enquire">
     <div class="px-shell px-capture-grid">
       <div>
-        <span class="px-label">Not sure where to start?</span>
-        <h2 class="px-h2"><span class="thin">Answer three</span><br>quick questions</h2>
-        <p>Tell us what you are training for and how your week looks, and we will point you at the right place to start. It takes about twenty seconds.</p>
+        <span class="px-label">Talk to Kieran</span>
+        <h2 class="px-h2"><span class="thin">Not sure which</span><br>plan suits you?</h2>
+        <p>Leave your details and Kieran will come back to you himself on WhatsApp. Tell him what you are training for and he will tell you straight whether the app is the right fit.</p>
       </div>
 
-      <div class="px-quiz-card" id="pxQuiz">
+      <div class="px-lead-card" id="pxLeadCard">
 
-        <div class="px-quiz-dots" aria-hidden="true">
-          <span class="px-quiz-dot on"></span>
-          <span class="px-quiz-dot"></span>
-          <span class="px-quiz-dot"></span>
-        </div>
-
-        <div class="px-quiz-step active" data-step="1">
-          <p class="px-quiz-q">What are you training for?</p>
-          <div class="px-quiz-opts">
-            <button type="button" class="px-quiz-opt" data-value="build muscle">Build muscle</button>
-            <button type="button" class="px-quiz-opt" data-value="lose fat">Lose fat</button>
-            <button type="button" class="px-quiz-opt" data-value="get stronger">Get stronger</button>
-            <button type="button" class="px-quiz-opt" data-value="feel better day to day">Feel better day to day</button>
+        <form id="pxLeadForm" novalidate>
+          <div class="px-lead-field">
+            <label for="pxName">Your name</label>
+            <input id="pxName" name="name" type="text" placeholder="Jordan Smith" autocomplete="name" required/>
           </div>
-        </div>
-
-        <div class="px-quiz-step" data-step="2">
-          <p class="px-quiz-q">How many days a week can you train?</p>
-          <div class="px-quiz-opts">
-            <button type="button" class="px-quiz-opt" data-value="2 to 3 days">2 to 3 days</button>
-            <button type="button" class="px-quiz-opt" data-value="3 to 4 days">3 to 4 days</button>
-            <button type="button" class="px-quiz-opt" data-value="5 or more days">5 or more days</button>
+          <div class="px-lead-field">
+            <label for="pxEmail">Email</label>
+            <input id="pxEmail" name="email" type="email" placeholder="you@email.com" autocomplete="email" required/>
           </div>
-          <button type="button" class="px-quiz-back">&#8592; Back</button>
-        </div>
-
-        <div class="px-quiz-step" data-step="3">
-          <p class="px-quiz-q">Where will you be training?</p>
-          <div class="px-quiz-opts">
-            <button type="button" class="px-quiz-opt" data-value="at the gym">At the gym</button>
-            <button type="button" class="px-quiz-opt" data-value="at home">At home</button>
-            <button type="button" class="px-quiz-opt" data-value="a bit of both">A bit of both</button>
+          <div class="px-lead-field">
+            <label for="pxPhone">Phone</label>
+            <input id="pxPhone" name="phone" type="tel" placeholder="07123 456789" autocomplete="tel" required/>
           </div>
-          <button type="button" class="px-quiz-back">&#8592; Back</button>
-        </div>
-
-        <div class="px-quiz-step px-quiz-result" data-step="result">
-          <span class="px-quiz-badge">Your recommendation</span>
-          <p class="px-quiz-summary" id="pxQuizSummary">Training to build muscle, 3 to 4 days a week, at the gym.</p>
-          <h3 class="px-h3">The Physique X membership</h3>
-          <p class="px-quiz-why">Everything you need sits in one app: the training plan written around your days and your setup, the nutrition in the same place you log it, and the weekly check-in that moves the plan with you.</p>
-          <div class="px-quiz-price">
-            <span class="px-quiz-amt">&pound;16.99</span>
-            <span class="px-quiz-per">a month, rolling</span>
+          <div class="px-lead-field">
+            <label for="pxInsta">Instagram <span class="px-lead-opt">optional</span></label>
+            <input id="pxInsta" name="instagram" type="text" placeholder="@yourhandle" autocomplete="off"/>
           </div>
-          <a class="px-btn px-btn-solid px-quiz-go" href="https://join.physique-x.com/p/physique-x-members-app/monthly" target="_blank" rel="noopener">Join Now</a>
-          <p class="px-form-small">Cancel any time. Committing for longer brings it down to &pound;9.58 a month, <a href="#pricing">see the plans</a>.</p>
-          <button type="button" class="px-quiz-restart">Start again</button>
+
+          <input type="text" name="_gotcha" id="pxGotcha" class="px-lead-trap" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+
+          <button type="submit" class="px-btn px-btn-solid px-lead-go">Send my details</button>
+          <p class="px-form-small" id="pxFormMsg">Kieran replies himself, usually the same day. No spam, ever.</p>
+        </form>
+
+        <div class="px-lead-thanks" id="pxLeadThanks" hidden>
+          <span class="px-lead-badge">
+            <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1.6 6.2 4.4 9 10.4 3"/></svg>
+            Got it
+          </span>
+          <h3 class="px-h3" id="pxThanksHead">Thanks, we have your details</h3>
+          <p class="px-lead-why">The quickest way to get started is a message. Tap below and it will open WhatsApp with a note to Kieran already written, so all you have to do is hit send.</p>
+          <a class="px-btn px-btn-solid px-lead-wa" id="pxWhatsApp" href="#" target="_blank" rel="noopener">
+            <svg class="px-lead-wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.55L3.5 20.5l1.47-5.04A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+            Message Kieran on WhatsApp
+          </a>
+          <p class="px-form-small">Rather just get going? <a href="#pricing">See the plans</a>.</p>
         </div>
 
       </div>
@@ -1648,6 +1596,36 @@ body.admin-bar #px-page .px-nav-wrap { top: 32px; }
 (function () {
   "use strict";
 
+  /* ------------------------------------------------------------------
+     1. WHERE THE LEADS GO
+
+     The REPS dashboard's form endpoint. It is the address of the
+     dashboard with /api/forms on the end, for example:
+
+       https://dashboard.your-account.workers.dev/api/forms
+
+     Leads land in Physique X > Leads as a new lead, and a returning
+     email adds to that person's timeline instead of duplicating them.
+
+     Left empty, the form still validates and shows the thank-you, but
+     the details go nowhere. Fine for review, not for going live.
+     ------------------------------------------------------------------ */
+  var PX_LEADS_ENDPOINT = "";
+
+  /* ------------------------------------------------------------------
+     2. KIERAN'S WHATSAPP NUMBER
+
+     In full international format, digits only: no plus, no spaces, no
+     leading zero. A UK mobile 07123 456789 becomes 447123456789.
+
+     Left empty, the thank-you message still appears but without the
+     WhatsApp button.
+     ------------------------------------------------------------------ */
+  var PX_WHATSAPP = "";
+
+  /* The client this site belongs to in the dashboard. Leave as it is. */
+  var PX_CLIENT = "physique-x";
+
   function pxInit() {
     var page = document.getElementById('px-page');
     if (!page) return;
@@ -1688,79 +1666,101 @@ body.admin-bar #px-page .px-nav-wrap { top: 32px; }
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
-    /* ------------------------------------------------------------------
-       RECOMMENDATION QUIZ
+    /* ---- Enquiry form ---- */
+    var form = document.getElementById('pxLeadForm');
+    if (form) {
+      var nameEl = document.getElementById('pxName');
+      var emailEl = document.getElementById('pxEmail');
+      var phoneEl = document.getElementById('pxPhone');
+      var instaEl = document.getElementById('pxInsta');
+      var trapEl = document.getElementById('pxGotcha');
+      var msgEl = document.getElementById('pxFormMsg');
+      var btnEl = form.querySelector('button[type="submit"]');
+      var thanksEl = document.getElementById('pxLeadThanks');
+      var headEl = document.getElementById('pxThanksHead');
+      var waEl = document.getElementById('pxWhatsApp');
 
-       Three questions, then the membership recommendation. Nothing is
-       sent anywhere: the answers only shape the sentence at the top of
-       the result panel.
-       ------------------------------------------------------------------ */
-    var quiz = document.getElementById('pxQuiz');
-    if (quiz) {
-      var steps = Array.prototype.slice.call(quiz.querySelectorAll('.px-quiz-step'));
-      var dots = Array.prototype.slice.call(quiz.querySelectorAll('.px-quiz-dot'));
-      var summary = document.getElementById('pxQuizSummary');
-      var answers = {};
-      var total = steps.filter(function (s) {
-        return s.getAttribute('data-step') !== 'result';
-      }).length;
+      function val(el) { return (el && el.value ? el.value : '').trim(); }
 
-      function show(key) {
-        steps.forEach(function (s) {
-          s.classList.toggle('active', s.getAttribute('data-step') === String(key));
-        });
-        quiz.classList.toggle('done', key === 'result');
-        var n = parseInt(key, 10);
-        dots.forEach(function (d, i) {
-          d.classList.toggle('on', !isNaN(n) && i < n);
-        });
+      function flag(el, bad) {
+        if (el) el.classList.toggle('px-lead-bad', !!bad);
       }
 
-      function sentence() {
-        var parts = [];
-        if (answers[1]) parts.push('Training to ' + answers[1]);
-        if (answers[2]) parts.push(answers[2] + ' a week');
-        if (answers[3]) parts.push(answers[3]);
-        return parts.join(', ') + '.';
-      }
+      function showThanks(name) {
+        var first = name.split(/\s+/)[0];
+        if (headEl) headEl.textContent = first ? 'Thanks, ' + first : 'Thanks, we have your details';
 
-      quiz.addEventListener('click', function (e) {
-        var opt = e.target.closest('.px-quiz-opt');
-        if (opt) {
-          var step = opt.closest('.px-quiz-step');
-          var num = parseInt(step.getAttribute('data-step'), 10);
-          step.querySelectorAll('.px-quiz-opt').forEach(function (o) {
-            o.classList.remove('on');
-          });
-          opt.classList.add('on');
-          answers[num] = opt.getAttribute('data-value');
-          if (num >= total) {
-            if (summary) summary.textContent = sentence();
-            show('result');
+        if (waEl) {
+          if (PX_WHATSAPP) {
+            var note = 'Hi Kieran, I have just filled in the form on your website'
+              + (first ? ' - my name is ' + first : '')
+              + '. Can you tell me which plan would suit me best?';
+            waEl.href = 'https://wa.me/' + PX_WHATSAPP.replace(/[^0-9]/g, '')
+              + '?text=' + encodeURIComponent(note);
           } else {
-            show(num + 1);
+            waEl.remove();
+            console.warn('Physique X: PX_WHATSAPP is not set, so the WhatsApp button was left off.');
           }
+        }
+
+        form.hidden = true;
+        if (thanksEl) thanksEl.hidden = false;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Honeypot: a real visitor never sees this field, so anything in
+        // it means a bot. Show the thank-you and send nothing.
+        if (val(trapEl)) { showThanks(''); return; }
+
+        var name = val(nameEl);
+        var email = val(emailEl);
+        var phone = val(phoneEl);
+        var insta = val(instaEl);
+
+        var problem = '';
+        if (!name) problem = 'Please enter your name.';
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) problem = 'Please enter a valid email address.';
+        else if (phone.replace(/[^0-9]/g, '').length < 7) problem = 'Please enter a phone number Kieran can reach you on.';
+
+        flag(nameEl, !name);
+        flag(emailEl, !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+        flag(phoneEl, phone.replace(/[^0-9]/g, '').length < 7);
+
+        if (problem) {
+          if (msgEl) msgEl.textContent = problem;
           return;
         }
 
-        var back = e.target.closest('.px-quiz-back');
-        if (back) {
-          var here = parseInt(back.closest('.px-quiz-step').getAttribute('data-step'), 10);
-          show(Math.max(1, here - 1));
+        if (msgEl) msgEl.textContent = 'Kieran replies himself, usually the same day. No spam, ever.';
+        if (btnEl) { btnEl.textContent = 'Sending...'; btnEl.disabled = true; }
+
+        if (!PX_LEADS_ENDPOINT) {
+          console.warn('Physique X: PX_LEADS_ENDPOINT is not set, so the lead went nowhere.');
+          showThanks(name);
           return;
         }
 
-        var restart = e.target.closest('.px-quiz-restart');
-        if (restart) {
-          answers = {};
-          quiz.querySelectorAll('.px-quiz-opt').forEach(function (o) {
-            o.classList.remove('on');
-          });
-          show(1);
-        }
+        fetch(PX_LEADS_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            client: PX_CLIENT,
+            name: name,
+            email: email.toLowerCase(),
+            phone: phone,
+            source: 'survey',
+            form: 'Website enquiry',
+            page: window.location.pathname || '/',
+            answers: insta ? { Instagram: insta } : {}
+          })
+        }).catch(function (err) {
+          console.error('Physique X: the enquiry did not reach the dashboard', err);
+        }).then(function () {
+          showThanks(name);
+        });
       });
-
-      show(1);
     }
   }
 
