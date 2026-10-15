@@ -1098,6 +1098,7 @@ html, body { margin: 0; padding: 0; }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
 
+/* Tablet and below: every two-column section stacks. */
 @media (max-width: 1040px) {
   /* The in-page anchors go, but the calculator is a separate page and
      the only way to reach it from here, so it stays. */
@@ -1126,63 +1127,111 @@ html, body { margin: 0; padding: 0; }
   #px-page .px-nav-keep a:hover,
   #px-page .px-nav-keep a:active { background: var(--px-ink); color: #fff; }
   #px-page .px-nav .px-btn { white-space: nowrap; }
-}
 
-/* Two buttons and a logo is a lot for the narrowest phones, so tighten
-   everything rather than let Join Now wrap onto two lines. */
-@media (max-width: 380px) {
-  #px-page .px-nav { padding: 8px 8px 8px 12px; gap: 8px; }
-  #px-page .px-nav-logo img { height: 24px; }
-  #px-page .px-nav-keep a { padding: 0.48rem 0.7rem; font-size: 0.64rem; letter-spacing: 0.04em; }
-  #px-page .px-nav .px-btn { padding: 0.6rem 0.9rem; font-size: 0.66rem; letter-spacing: 0.05em; }
   #px-page .px-hero-grid,
   #px-page .px-about-grid,
   #px-page .px-inside-grid,
   #px-page .px-coach,
   #px-page .px-faq-grid,
-  #px-page .px-capture-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
-  #px-page .px-head-split { grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start; }
+  #px-page .px-capture-grid { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  #px-page .px-head-split { grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; margin-bottom: 40px; }
   #px-page .px-head-split .px-note { justify-self: start; }
-  #px-page .px-plans,
-  #px-page .px-reviews { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #px-page .px-foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  #px-page .px-hero-visual { min-height: 460px; }
+
+  #px-page .px-lead,
+  #px-page .px-capture p { max-width: 60ch; }
+
+  /* hero visual sits under the copy, centred, at a sensible size */
+  #px-page .px-hero-visual {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    min-height: 0;
+    aspect-ratio: 1 / 0.92;
+  }
+
+  /* phone cluster becomes a centred, proportional fan */
+  #px-page .px-phone-cluster {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    min-height: 0;
+    aspect-ratio: 1 / 0.98;
+  }
+  #px-page .px-phone-cluster img { width: 42%; }
+  #px-page .px-pc-2 { left: 29%; }
+
+  #px-page .px-coach-photo { max-width: 520px; width: 100%; margin: 0 auto; }
+
+  #px-page .px-plans { grid-template-columns: minmax(0, 1fr); max-width: 480px; margin: 0 auto; gap: 18px; }
+  #px-page .px-reviews { grid-template-columns: minmax(0, 1fr); max-width: 620px; margin: 0 auto; gap: 16px; }
+
+  #px-page .px-foot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 28px; }
+  #px-page .px-foot-brand { grid-column: 1 / -1; }
 }
 
+/* Phones */
 @media (max-width: 720px) {
   #px-page .px-shell { padding-inline: 20px; }
-  #px-page .px-nav-wrap { padding: 12px 16px 0; }
-  #px-page .px-nav { padding: 9px 9px 9px 18px; }
+  #px-page .px-nav-wrap { padding: 12px 14px 0; }
+  #px-page .px-nav { padding: 8px 8px 8px 16px; gap: 10px; }
   #px-page .px-nav-logo img { height: 28px; }
+
   #px-page .px-sec { padding: 64px 0; }
-  #px-page .px-hero { padding-top: 36px; }
-  #px-page .px-hero-grid { padding-bottom: 56px; gap: 34px; }
-  #px-page .px-hero-btns { flex-direction: column; align-items: stretch; }
-  #px-page .px-hero-btns .px-btn { width: 100%; }
-  #px-page .px-hero-visual { min-height: 400px; }
-  #px-page .px-hero-photo { inset: 0 0 0 26%; }
-  #px-page .px-hero-phone { width: 140px; }
-  #px-page .px-hero-phone-a { left: 4%; }
-  #px-page .px-hero-phone-b { width: 124px; left: 26%; }
+  #px-page .px-curve-top { border-top-left-radius: 50% 32px; border-top-right-radius: 50% 32px; }
+  #px-page .px-curve-bottom { border-bottom-left-radius: 50% 32px; border-bottom-right-radius: 50% 32px; }
+
+  #px-page .px-h1 { font-size: clamp(2.5rem, 11.5vw, 3.2rem); }
+  #px-page .px-h2 { font-size: clamp(2rem, 9vw, 2.5rem); }
+  #px-page .px-label { margin-bottom: 0.8rem; }
+  #px-page .px-lead { font-size: 0.98rem; }
+
+  /* Hero */
+  #px-page .px-hero { padding-top: 32px; }
+  #px-page .px-hero-grid { padding-bottom: 48px; gap: 36px; }
+  #px-page .px-hero h1 { margin-bottom: 1.1rem; }
+  #px-page .px-hero .px-lead { margin-bottom: 1.8rem; }
+  #px-page .px-hero-btns { flex-direction: column; align-items: stretch; gap: 10px; }
+  #px-page .px-hero-btns .px-btn { width: 100%; white-space: nowrap; }
+  #px-page .px-hero-micro { text-align: center; }
+  #px-page .px-hero-btns + .px-hero-micro { display: block; }
+  #px-page .px-hero-visual { aspect-ratio: 1 / 1.08; }
+  #px-page .px-hero-photo { inset: 0 0 0 24%; border-radius: 22px; }
+  #px-page .px-hero-phone { width: 40%; border-radius: 20px; border-width: 4px; }
+  #px-page .px-hero-phone-a { left: 0; bottom: 5%; }
+  #px-page .px-hero-phone-b { width: 35%; left: 23%; bottom: 26%; }
+
   /* proof pill: keep it to one line on a phone */
-  #px-page .px-proof { padding: 6px 14px 6px 6px; gap: 9px; }
-  #px-page .px-proof-text { font-size: 0.72rem; }
+  #px-page .px-proof { padding: 6px 14px 6px 6px; gap: 9px; margin-bottom: 1.4rem; }
+  #px-page .px-proof-text { font-size: 0.72rem; white-space: nowrap; }
   #px-page .px-proof-rule, #px-page .px-proof-text + .px-proof-rule + .px-proof-text { display: none; }
-  #px-page .px-plans,
-  #px-page .px-reviews,
-  #px-page .px-foot-grid { grid-template-columns: minmax(0, 1fr); }
-  #px-page .px-screens { justify-content: flex-start; margin-inline: -20px; padding-inline: 20px; }
-  #px-page .px-phone-cluster { min-height: 420px; }
-  #px-page .px-phone-cluster img { width: 170px; }
-  #px-page .px-pc-2 { left: 26%; }
-  #px-page .px-statrow { gap: 26px; }
-  #px-page .px-coach-flag { position: static; max-width: none; margin-top: 0; border-radius: 0; }
-  #px-page .px-faq-item.open .px-faq-q { padding-inline: 14px; }
-  #px-page .px-faq-item.open .px-faq-a { padding-left: 44px; padding-right: 14px; }
-  #px-page .px-faq-a { padding-left: 42px; }
-  #px-page .px-trust { gap: 14px; flex-direction: column; align-items: center; }
+
+  /* Marquee */
+  #px-page .px-marquee { margin: 0 0 56px; padding: 14px 0; }
+  #px-page .px-marquee-row { gap: 30px; }
+  #px-page .px-marquee-item { font-size: 0.95rem; }
+
+  /* About */
+  #px-page .px-statrow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 2rem;
+    padding-top: 1.6rem;
+  }
+  #px-page .px-stat-num { font-size: 1.45rem; }
+  #px-page .px-stat-lbl { font-size: 0.6rem; letter-spacing: 0.1em; line-height: 1.4; }
+  #px-page .px-phone-cluster img { border-radius: 20px; border-width: 4px; }
+
+  /* What's inside */
+  #px-page .px-acc { margin-top: 1.6rem; }
+  #px-page .px-acc-q { font-size: 1.02rem; padding: 17px 0; gap: 14px; }
+  #px-page .px-acc-ico { width: 22px; height: 22px; }
+  #px-page .px-acc-a { padding: 0 0 20px 36px; }
+  #px-page .px-inside-cta { flex-direction: column; align-items: stretch; gap: 12px; }
+  #px-page .px-inside-cta .px-btn { width: 100%; }
+  #px-page .px-inside-cta .px-hero-micro { text-align: center; }
   /* features visual: keep the blob and the chips inside the screen */
-  #px-page .px-inside-visual { padding: 10px 0 18px; }
+  #px-page .px-inside-visual { padding: 30px 0; }
   #px-page .px-blob {
     width: 300px;
     height: 300px;
@@ -1190,11 +1239,20 @@ html, body { margin: 0; padding: 0; }
     top: 50%;
     transform: translate(-50%, -50%);
   }
-  #px-page .px-inside-phone { width: 232px; }
+  #px-page .px-inside-phone { width: 220px; border-radius: 28px; }
   #px-page .px-chip { font-size: 0.74rem; padding: 9px 14px; gap: 7px; }
   #px-page .px-chip-ico { width: 15px; height: 15px; }
-  #px-page .px-chip-a { top: 7%; left: 0; }
-  #px-page .px-chip-b { bottom: 5%; right: 0; }
+  #px-page .px-chip-a { top: 8%; left: 0; }
+  #px-page .px-chip-b { bottom: 8%; right: 0; }
+
+  /* Inside the app: a swipeable row that starts at the left edge */
+  #px-page .px-screens { padding: 6px 0 26px; }
+  #px-page .px-arc { justify-content: flex-start; gap: 14px; padding-inline: 20px; }
+  #px-page .px-arc-phone { border-radius: 24px; border-width: 4px; }
+  #px-page .px-arc-out    { width: 150px; margin-top: 40px; }
+  #px-page .px-arc-mid    { width: 160px; margin-top: 18px; }
+  #px-page .px-arc-centre { width: 184px; }
+
   /* feature pills: a tidy two-column grid rather than a ragged stack */
   #px-page .px-pills {
     display: grid;
@@ -1212,19 +1270,68 @@ html, body { margin: 0; padding: 0; }
     font-size: 0.75rem;
     line-height: 1.25;
     border-radius: 14px;
-  }
-  #px-page .px-pill:last-child { grid-column: 1 / -1; }
-  /* restate the fill so it checkerboards across two columns
-     rather than colouring the whole left-hand column */
-  #px-page .px-pill {
     background: #fff;
     border-color: var(--px-purple-soft);
   }
+  #px-page .px-pill:last-child { grid-column: 1 / -1; }
+  /* restate the fill so it checkerboards across two columns */
   #px-page .px-pill:nth-child(4n+1),
   #px-page .px-pill:nth-child(4n) {
     background: var(--px-purple-soft);
     border-color: var(--px-purple-soft);
   }
+
+  /* Pricing */
+  #px-page .px-centred { margin-bottom: 36px; }
+  #px-page .px-plan-body { padding: 24px 22px 26px; }
+  #px-page .px-plan-pop .px-plan-body { padding-top: 48px; }
+  #px-page .px-plan-amt { font-size: 2.6rem; }
+  #px-page .px-trust { gap: 12px; flex-direction: column; align-items: flex-start; width: max-content; max-width: 100%; margin: 30px auto 0; }
+
+  /* Results */
+  #px-page .px-transforms { border-radius: var(--px-r-md); }
+  #px-page .px-review { padding: 24px 22px; }
+
+  /* Meet Kieran */
+  #px-page .px-coach { gap: 36px; }
+  #px-page .px-coach-photo img { aspect-ratio: 1 / 1.05; }
+  #px-page .px-coach-flag { left: 14px; right: 14px; bottom: 14px; max-width: none; padding: 12px 16px; font-size: 0.78rem; }
+
+  /* FAQ */
+  #px-page .px-faq-grid { gap: 36px; }
+  #px-page .px-faq-grid > div:first-child .px-btn { width: 100%; }
+  #px-page .px-faq-grid > div:first-child .px-hero-micro { text-align: center; }
+  #px-page .px-faq-q { font-size: 0.95rem; padding: 18px 2px; gap: 12px; }
+  #px-page .px-faq-n { width: 20px; }
+  #px-page .px-faq-ico { width: 28px; height: 28px; }
+  #px-page .px-faq-a { padding: 0 2px 20px 34px; }
+  #px-page .px-faq-item.open .px-faq-q { padding-inline: 14px; }
+  #px-page .px-faq-item.open .px-faq-a { padding-left: 46px; padding-right: 14px; }
+
+  /* Quiz and lead form */
+  #px-page .px-capture { padding: 64px 0; }
+  #px-page .px-capture-grid { gap: 32px; }
+  #px-page .px-lead-card { padding: 24px 20px; border-radius: var(--px-r-md); }
+  #px-page .px-quiz-card { min-height: 0; }
+  #px-page .px-quiz-q { font-size: 1.2rem; }
+
+  /* Footer: brand across the top, link columns in pairs below */
+  #px-page footer { padding: 56px 0 26px; }
+  #px-page .px-foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; padding-bottom: 36px; }
+  #px-page .px-foot-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* Two buttons and a logo is a lot for the narrowest phones, so tighten
+   the nav rather than let Join Now wrap onto two lines. */
+@media (max-width: 380px) {
+  #px-page .px-shell { padding-inline: 16px; }
+  #px-page .px-nav { padding: 8px 8px 8px 12px; gap: 8px; }
+  #px-page .px-nav-logo img { height: 24px; }
+  #px-page .px-nav-keep a { padding: 0.48rem 0.7rem; font-size: 0.64rem; letter-spacing: 0.04em; }
+  #px-page .px-nav .px-btn { padding: 0.6rem 0.9rem; font-size: 0.66rem; letter-spacing: 0.05em; }
+  #px-page .px-arc { padding-inline: 16px; }
+  #px-page .px-stat-num { font-size: 1.3rem; }
+  #px-page .px-chip { font-size: 0.7rem; padding: 8px 12px; }
 }
 
 /* Keep the fixed nav below the WP admin bar when logged in */
