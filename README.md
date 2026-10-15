@@ -8,7 +8,8 @@ The Physique X landing page, as one self-contained HTML file.
 | --- | --- |
 | `index.html` | The whole page. Every image is embedded, so this one file is the site. |
 | `.nojekyll` | Tells GitHub Pages to serve the files as they are rather than running them through Jekyll. |
-| `CNAME.example` | Rename to `CNAME` only if you point a custom domain at this repo. |
+| `CNAME.example` | Rename to `CNAME` only if you point a custom domain at this repo through GitHub Pages. |
+| `wrangler.jsonc` | Cloudflare's settings, so the site can be deployed on Cloudflare Workers with no build step. Ignored by GitHub Pages. |
 
 ## Putting it live on GitHub Pages
 

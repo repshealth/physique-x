@@ -1,0 +1,19 @@
+/**
+ * Cloudflare Workers settings for the Physique X site.
+ *
+ * The site is a single static HTML file, so there is no Worker script and
+ * nothing to build. Cloudflare serves the files in this folder as they are.
+ *
+ * Because there is no "main" entry point, every request goes straight to the
+ * assets. See https://developers.cloudflare.com/workers/static-assets/
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "physique-x",
+  "compatibility_date": "2026-10-15",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
