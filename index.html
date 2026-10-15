@@ -1105,12 +1105,36 @@ html, body { margin: 0; padding: 0; }
   #px-page .px-nav-links li { display: none; }
   #px-page .px-nav-links li.px-nav-keep { display: block; }
   #px-page .px-nav-long { display: none; }
+  /* An outlined button, so it reads as tappable without competing with
+     the solid Join Now sitting next to it. */
   #px-page .px-nav-keep a {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--px-purple);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.52rem 0.95rem;
+    border: 1.5px solid var(--px-ink);
+    border-radius: 100px;
+    background: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--px-ink);
     white-space: nowrap;
+    transition: background .2s, color .2s;
   }
+  #px-page .px-nav-keep a:hover,
+  #px-page .px-nav-keep a:active { background: var(--px-ink); color: #fff; }
+  #px-page .px-nav .px-btn { white-space: nowrap; }
+}
+
+/* Two buttons and a logo is a lot for the narrowest phones, so tighten
+   everything rather than let Join Now wrap onto two lines. */
+@media (max-width: 380px) {
+  #px-page .px-nav { padding: 8px 8px 8px 12px; gap: 8px; }
+  #px-page .px-nav-logo img { height: 24px; }
+  #px-page .px-nav-keep a { padding: 0.48rem 0.7rem; font-size: 0.64rem; letter-spacing: 0.04em; }
+  #px-page .px-nav .px-btn { padding: 0.6rem 0.9rem; font-size: 0.66rem; letter-spacing: 0.05em; }
   #px-page .px-hero-grid,
   #px-page .px-about-grid,
   #px-page .px-inside-grid,
