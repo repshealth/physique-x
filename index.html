@@ -1099,7 +1099,18 @@ html, body { margin: 0; padding: 0; }
 /* ─── Responsive ─────────────────────────────────────────────── */
 
 @media (max-width: 1040px) {
-  #px-page .px-nav-links { display: none; }
+  /* The in-page anchors go, but the calculator is a separate page and
+     the only way to reach it from here, so it stays. */
+  #px-page .px-nav-links { display: flex; gap: 0; }
+  #px-page .px-nav-links li { display: none; }
+  #px-page .px-nav-links li.px-nav-keep { display: block; }
+  #px-page .px-nav-long { display: none; }
+  #px-page .px-nav-keep a {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--px-purple);
+    white-space: nowrap;
+  }
   #px-page .px-hero-grid,
   #px-page .px-about-grid,
   #px-page .px-inside-grid,
@@ -1223,7 +1234,7 @@ body.admin-bar #px-page .px-nav-wrap { top: 32px; }
         <li><a href="#app">The App</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a href="calculator/">Calorie Calculator</a></li>
+        <li class="px-nav-keep"><a href="calculator/"><span class="px-nav-long">Calorie </span>Calculator</a></li>
       </ul>
       <a href="#pricing" class="px-btn px-btn-solid px-btn-sm">Join Now</a>
     </nav>
