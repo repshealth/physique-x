@@ -32,10 +32,10 @@ Pages serves `index.html` automatically, so the address needs no filename on the
 
 Open `index.html` in any text editor. The styles sit in a `<style>` block near the top and the content follows in plain HTML.
 
-**The enquiry form.** Near the bottom of the file, inside the `<script>` block, two lines need filling in:
+**The quiz and enquiry form.** Near the bottom of the file, inside the `<script>` block:
 
-- `PX_LEADS_ENDPOINT` is the REPS dashboard address with `/api/forms` on the end, for example `https://dashboard.your-account.workers.dev/api/forms`. Leads then appear in Physique X > Leads. Left empty, the form validates and shows the thank-you but saves nothing.
-- `PX_WHATSAPP` is Kieran's number in full international format, digits only, no plus and no leading zero. A UK mobile `07123 456789` becomes `447123456789`. Left empty, the thank-you appears without the WhatsApp button.
+- `PX_LEADS_ENDPOINT` is the REPS dashboard address with `/api/forms` on the end, for example `https://dashboard.your-account.workers.dev/api/forms`. Leads appear in Physique X > Leads tagged "Homepage quiz", with the three quiz answers and the Instagram handle listed on the lead. Left empty, the quiz still runs and shows the recommendation but saves nothing. Note the dashboard has to be deployed to Cloudflare for this address to exist: GitHub Pages cannot run the API.
+- `PX_WHATSAPP` is Kieran's number in full international format, digits only, no plus and no leading zero. It is currently `447525154090`. Left empty, the recommendation appears without the WhatsApp button.
 
 **The checkout links.** The pricing buttons point at the join pages. Search for `join.physique-x.com` to find them.
 
